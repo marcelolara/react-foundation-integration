@@ -24,14 +24,29 @@ CSS desde SASS.
 ```
 "scrips": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run buil-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     ...
-    }
+}
 ```
 
 6. Renombramos los archivos de estilo que queremos procesar, en este caso 
 **index.css** a **index.scss** y ejecutamos **npm run build-css** para testear
 que funciona correctamente.
 
-Ya podemos ejecutar nuevamente `$ npm start` y notar que ya no arroja error con 
+Ya podemos ejecutar nuevamente `npm start` y notar que ya no arroja error con 
 SASS.  
+
+7. Es posible automatizar la generación de los archivos CSS desde SASS al 
+ejecutar `npm start` incluyendo la siguiente dependencia.
+`$ npm install npm-run-all --save-dev`
+
+8. Luego es necesario modificar los scripts contenidos en **package.json**
+```
+"scripts": {
+    ...
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    ...
+}
+```
