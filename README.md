@@ -50,3 +50,15 @@ ejecutar `npm start` incluyendo la siguiente dependencia.
     ...
 }
 ```
+9. Ahora es posible agregar la dependencia de Foundation para react.
+ `$ npm install react-foundation --save`
+
+10. Como ejemplo es posible agregar un botón al estilo Foundation y revisar que
+este se vea correctamente, eso lo realizamos en **App.js**.
+
+`<Button color={Colors.SUCCESS}>Testing Foundation</Button>`
+
+11. Para que este ejemplo funcione, es necesario importar al mismo archivo los
+componentes de Foundation al botón insertado.
+
+`import { Button, Colors } from 'react-foundation';`
